@@ -6,9 +6,13 @@
         <title>WikiTranslator</title>
         <meta name="description" content="WikiTranslator is a Wikipedia-based translation engine for professional terms and vocabulary.">
         <meta property="og:image" content="img/open_graph.png" />
+        <link rel='manifest' href='manifest.json'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!--[if lte IE 8]>
+        <script src="https://cdn.rawgit.com/inexorabletash/polyfill/v0.1.42/polyfill.min.js"></script>
+        <![endif]-->
     </head>
     <body>
         <div id="top">
@@ -89,7 +93,7 @@
             <div>
                 <p>Did you find WikiTranslator useful? That's great! To help make it even better, please consider contributing to <a href="https://wikipedia.org" target="_blank" title="Wikipedia">your language's Wikipedia</a>, as well as <a href="https://donate.wikimedia.org" target="_blank" title="Donate to the Wikimedia Foundation">donating to the Wikimedia Foundation</a>, which supports the hosting of Wikipedia and the APIs this site replies on.</p>
                 <p>If you would like to support this project directly, you're invited to <a href="https://github.com/jdranczewski/WikiTranslator/issues" target="_blank" title="WikiTranslator issues">submit issues on GitHub</a>, which will help make the site work better!</p>
-                <p>Lastly: hi, I am Jakub Dranczewski, a Physics student at Imperial College London. This website is a project I have worked on over the summer because I've found myself using Wikipedia to translate Physics terms quite a lot and thought that a tool which does it for you could be useful for the general public too! If you would like to support me directly, you can do so through <a href="https://monzo.me/jakubdranczewski" target="_blank" title="A bank. No account needed. Card/Google/Apple Pay. In pound sterling.">Monzo</a> or <a href="https://paypal.me/jdranczewski" target="_blank" title="Account needed. Any currency.">PayPal</a>. You can find out more about me and my other projects at <a href="http://jdranczewski.github.io" target="_blank">jdranczewski.github.io</a>. Thank you for dropping by!</p>
+                <p>Lastly: hi, I am Jakub Dranczewski, a Physics student at Imperial College London. This website is a project I have worked on over the summer because I've found myself using Wikipedia to translate Physics terms quite a lot and thought that a tool which does it for you could be useful for the general public too! If you would like to support me directly, you can do so through <a href="https://monzo.me/jakubdranczewski/5" target="_blank" title="A bank. No account needed. Card/Google/Apple Pay. In pound sterling.">Monzo</a> or <a href="https://paypal.me/jdranczewski/5" target="_blank" title="Account needed. Any currency.">PayPal</a>. You can find out more about me and my other projects at <a href="http://jdranczewski.github.io" target="_blank">jdranczewski.github.io</a>. Thank you for dropping by!</p>
             </div>
         </div>
         <div id="footer">
@@ -99,6 +103,18 @@
                 <p>Wikipedia is a trademark of the Wikimedia Foundation and is used with the permission of the Wikimedia Foundation.<br>WikiTranslator is not endorsed by or affiliated with the Wikimedia Foundation.</p>
             </div>
         </div>
+        <div id="cookies">
+            <div id="cok">OK</div>
+            This website uses cookies to store recently used languages. You can turn off cookies in your browser. Basic visit analytics are used, but no personally identifying information is collected. <a href="cookies.html" target="_blank">Learn more</a>
+        </div>
         <script src="js/main.js"></script>
+        <script type="text/javascript">
+        if ("serviceWorker" in navigator && !navigator.serviceWorker.controller) {
+            // Register the service worker
+            navigator.serviceWorker.register("js/pwa-sw.js", {
+                scope: "./"
+            });
+        }
+        </script>
     </body>
 </html>
