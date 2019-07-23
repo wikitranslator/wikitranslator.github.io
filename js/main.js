@@ -296,7 +296,11 @@ function setRecent(lang) {
 var og_el = document.querySelector('#og');
 function update_og_title(a) {
     og_el.querySelector(".title").value = a.title;
-    document.title = "WikiTranslator - " + a.title.split("_").join(" ");
+    if (a.title == "") {
+        document.title = "WikiTranslator";
+    } else {
+        document.title = "WikiTranslator - " + a.title.split("_").join(" ");
+    }
     tr.findTranslation(og);
 }
 
@@ -607,3 +611,10 @@ document.querySelector("#og-title").oninput = function(e) {
 window.setTimeout(function() {
     document.querySelector("#lang-selector-container").style.display = "block";
 }, 500);
+
+// Simple analytics: sends only a hit and a referrer domain (not the full
+// address). Zero PII.
+var xs = new XMLHttpRequest();
+xs.open("POST", "https://jdranczewski.cba.pl/SimpleWebStats.php", true);
+xs.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xs.send("referrer="+encodeURIComponent(document.referrer));
